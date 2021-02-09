@@ -1,0 +1,1 @@
+topic_dict = {'paris':'paris.mp4', 'diving':'ocean40.webm', 'venise':'venise.webm', 'roller':'roller65.webm', 'timelapse': 'newyork.webm', '0': 'conan1.mp4', '1':'skiing.mp4', '2':'alien.mp4', '3':'conan2.mp4', '4':'surfing.mp4', '5': 'war.mp4','7':'football.mp4', '8': 'rhinos.mp4', '6': 'cooking.mp4'}
