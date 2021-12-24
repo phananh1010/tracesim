@@ -196,7 +196,7 @@ def gen_dataset(_sal_list, _headpos_dict, _R, _step_back, _step_ahead, _model='l
         idx_list = range(len(X0))
         np.random.shuffle(idx_list)
     else:
-        print 'Using external idx_list'
+        print ('Using external idx_list')
         idx_list = _idx_list
     
     X0 = X0[idx_list]
@@ -258,7 +258,7 @@ def visualize_predict(_Xtest, _ytest, _fx, _pos):
     plt.axis('off')
     plt.savefig('grouthtruth.png')
     plt.figure()
-    print 'input saliency', 'input head orientation map', 'model prediction', 'ground truth'
+    print ('input saliency', 'input head orientation map', 'model prediction', 'ground truth')
 
 def count_black(t1, t2):
     intersect = np.array(np.logical_and(t1, t2), dtype=int)

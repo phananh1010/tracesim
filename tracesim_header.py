@@ -14,3 +14,5 @@ NETWORK_STATUS_RECEIVING = 2
 NETWORK_STATUS_DONE = 3
 
 STEP = 0.01 #10 miliseconds is the smallest grain steps
+
+FILE_PATH_SDS = './salient_ds_dict_w16_h9'

@@ -36,19 +36,19 @@ def save_log(loglist, filename, rad, look, bwscale):
     
     #pickle.dump([lstm_log, lnregr_log, sal_log, full_log], open('{}_rad{}_look{}_bwscale{}'.format(bwtrace_path, RAD, look_ahead, bwscale), 'wb'))
     pickle.dump(loglist, open('{}_rad{}_look{}_bwscale_{}'.format(log_filepath, rad, look, bwscale), 'wb'))
-    print 'Stall count; stall_time; start_time, bw_used_ratio, non_blank_ratio'
+    print ('Stall count; stall_time; start_time, bw_used_ratio, non_blank_ratio')
     for llog in loglist:
         for item in llog:
-            print llog[item]#.mean(axis=0)
+            print (llog[item])#.mean(axis=0)
 
 def save_quallog(quallog_list, modelname_list, rad, look, bwscale):
     log_filepath = '/home/u9168/tracesim/result/QUALLOG'
     pickle.dump(quallog_list, open('{}_rad{}_look{}_bwscale_{}'.format(log_filepath, rad, look, bwscale), 'wb'))
 
     for idx, quallog in enumerate(quallog_list):
-        print 'Viewport overlap for model {}'.format( modelname_list[idx])
+        print ('Viewport overlap for model {}'.format( modelname_list[idx]))
         for bwtrace in quallog:
-            print bwtrace, np.mean([headpred.viewport_overlap(t1, t2) for topic, ts, t1, t2 in quallog[bwtrace]][:400])
+            print (bwtrace, np.mean([headpred.viewport_overlap(t1, t2) for topic, ts, t1, t2 in quallog[bwtrace]][:400]))
     return
 
 
@@ -58,12 +58,12 @@ def plot_log(plt, x, x_ticks, y_list, modelname_list, title='', xlabel='', ylabe
     plt.figure()
     marker_list = ['o', 'x', '+', '*']
     for idx, y in enumerate(y_list):
-        plt.plot(x, y.T.mean(axis=0), linestyle='--')
+        plt.plot(x, y.T.mean(axis=0), linestyle='--', dashes=(5, 3), linewidth=2.45)
         
         plt.xticks(x, x_ticks, fontsize=20)
-        plt.scatter(x, y.T.mean(axis=0), label=modelname_list[idx], s=180, marker=marker_list[idx])
-        plt.ylabel(ylabel, fontsize=20)
-        plt.xlabel(xlabel, fontsize=20)
+        plt.scatter(x, y.T.mean(axis=0), label=modelname_list[idx], s=180, marker=marker_list[idx], linewidths=2.45)
+        plt.ylabel(ylabel, fontsize=20, fontweight='bold')
+        plt.xlabel(xlabel, fontsize=20, fontweight='bold')
     plt.legend(prop={'size': 13})
     plt.tight_layout()
     plt.savefig('./figs/{}.pdf'.format(title), format='pdf', dpi=1000)

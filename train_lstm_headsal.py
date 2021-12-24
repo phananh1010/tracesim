@@ -3,6 +3,8 @@ import numpy as np
 import pickle
 import copy
 from keras.callbacks import ModelCheckpoint
+import tracesim_header
+
 
 import matplotlib.gridspec as gridspec
 from matplotlib import pyplot as plt
@@ -160,7 +162,7 @@ def eval_mapbaseline(_map_list, _y, _visualize=False):
     return result_acc    
 
 def get_lnregr_model():
-    sds = pickle.load(open('../testing/salient_ds_dict_w16_h9'))
+    sds = pickle.load(open(tracesim_header.FILE_PATH_SDS))
 
     model = '360net'
     alien = '2'
